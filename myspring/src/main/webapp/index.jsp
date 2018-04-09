@@ -211,7 +211,7 @@
 							<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
 						</div>
 						<i class="fa fa-user" ></i>
-						<a href="#">Sign in</a>/<a href="#">Register</a>
+						<a href="#" id="btn_reg">Sign in</a>/<a href="#">Register</a>
 					</div>
 				</div>
 			</div>
@@ -220,7 +220,38 @@
 </div>
 
 <!--Menu  area end -->   
+<!--register form  -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+             
+                    <h4 class="modal-title" id="myModalLabel">Register New User / Login</h4>
+                </div>
+                 <form action="./register" method="post">
+                <div class="modal-body">
+                 
+                    <div class="form-group">
+                        <label for="txt_departmentname">username</label>
+                        <input type="text" name="txt_departmentname" class="form-control" id="txt_departmentname" placeholder="Phone/email">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_parentdepartment">password</label>
+                        <input type="password" name="txt_parentdepartment" class="form-control" id="txt_parentdepartment" >
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>close</button>
+                    <input type="submit" id="btn_submit" value="submit" class="btn btn-primary" data-dismiss="modal"/>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div> 
 
+
+ -->
 <!-- Slides start -->
 <div class="slider-wrapper">
 <div class="homepage-s  owl-carousel owl-theme">
@@ -1225,6 +1256,11 @@ Early child care is a very important and often overlooked compaonent of child de
 <script src="js/mobile-menu.js"></script>
 <!-- === Main  js === -->
 <script src="js/main.js"></script>
-
+<script>
+ $("#btn_reg").click(function () {
+	   
+	    $('#myModal').modal();
+	 });
+</script>
 </body>
 </html>
