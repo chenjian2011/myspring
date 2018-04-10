@@ -220,7 +220,7 @@
 </div>
 
 <!--Menu  area end -->   
-<!--register form  -->
+<!--register form  begin -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -228,30 +228,32 @@
              
                     <h4 class="modal-title" id="myModalLabel">Register New User / Login</h4>
                 </div>
-                 <form action="./register" method="post">
+               
                 <div class="modal-body">
-                 
+               <form class="contact">
                     <div class="form-group">
                         <label for="txt_departmentname">username</label>
-                        <input type="text" name="txt_departmentname" class="form-control" id="txt_departmentname" placeholder="Phone/email">
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Phone/email">
                     </div>
                     <div class="form-group">
                         <label for="txt_parentdepartment">password</label>
-                        <input type="password" name="txt_parentdepartment" class="form-control" id="txt_parentdepartment" >
+                        <input type="password" name="password" class="form-control" id="password" >
                     </div>
-                   
+               </form>  
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>close</button>
-                    <input type="submit" id="btn_submit" value="submit" class="btn btn-primary" data-dismiss="modal"/>
+                   
+                    <button type="button" id="submit" class="btn btn-primary">提交更改</button>
                 </div>
-                </form>
+                
             </div>
         </div>
     </div> 
+<div id="thanks"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary btn-large">Modal powers, activate!</a></p></div>
 
 
- -->
+<!--register form  end -->
 <!-- Slides start -->
 <div class="slider-wrapper">
 <div class="homepage-s  owl-carousel owl-theme">
@@ -1258,9 +1260,30 @@ Early child care is a very important and often overlooked compaonent of child de
 <script src="js/main.js"></script>
 <script>
  $("#btn_reg").click(function () {
-	   
+	
 	    $('#myModal').modal();
 	 });
+ 
 </script>
+<script>
+$(document).ready(function () {
+    $("input#submit").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "./ajaxForm", //process to mail
+            data: $('form.contact').serialize(),
+            success: function(msg){
+                $("#thanks").html(msg) //hide button and show thank you
+                $("#myModal").modal('hide'); //hide popup  
+            },
+            error: function(){
+                alert("failure");
+            }
+        });
+    });
+});
+
+</script>
+
 </body>
 </html>
