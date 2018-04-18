@@ -1274,7 +1274,7 @@ $(document).ready(function () {
             url: "./ajaxForm", //process to mail
             data: $('form.contact').serialize(),
             success: function(msg){
-            	alert(msg);
+            	alert(msg.uname);
                
             },
             error: function(){
