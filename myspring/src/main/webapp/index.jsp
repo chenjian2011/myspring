@@ -38,8 +38,8 @@
 </head>
 
 <body>
-
-<div class="preloader"></div>
+<!-- 
+<div class="preloader"></div> -->
 
 <!--Top bar area start-->  
 <div class="top-bar style-two">
@@ -244,13 +244,13 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>close</button>
                    
-                    <button type="button" id="submit" class="btn btn-primary">提交更改</button>
+                    <button type="submit" id="submit" class="btn btn-primary">提交更改</button>
                 </div>
                 
             </div>
         </div>
     </div> 
-<div id="thanks"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary btn-large">Modal powers, activate!</a></p></div>
+
 
 
 <!--register form  end -->
@@ -1267,14 +1267,15 @@ Early child care is a very important and often overlooked compaonent of child de
 </script>
 <script>
 $(document).ready(function () {
-    $("input#submit").click(function(){
+    $("#submit").click(function(){
+    	
         $.ajax({
             type: "POST",
             url: "./ajaxForm", //process to mail
             data: $('form.contact').serialize(),
             success: function(msg){
-                $("#thanks").html(msg) //hide button and show thank you
-                $("#myModal").modal('hide'); //hide popup  
+            	alert(msg);
+               
             },
             error: function(){
                 alert("failure");

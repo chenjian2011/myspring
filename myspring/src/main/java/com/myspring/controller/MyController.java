@@ -1,7 +1,11 @@
 package com.myspring.controller;
 
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.myspring.model.UUser;
 
 @Controller
 public class MyController {
@@ -9,9 +13,14 @@ public class MyController {
 	public String getFirst(){
 		return "firstpage";
 	}
-	@RequestMapping("/second")
-	public String getSecond(){
-		return "secondpage";
+	@RequestMapping("/ajaxForm")
+	public @ResponseBody UUser ajaxFormController(){
+		System.out.println("fdsa");
+		
+		UUser uu = new UUser("sspu","abc");
+		
+		return uu;
 	}
+	
 
 }
