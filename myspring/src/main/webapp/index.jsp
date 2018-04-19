@@ -233,11 +233,11 @@
                <form class="contact">
                     <div class="form-group">
                         <label for="txt_departmentname">username</label>
-                        <input type="text" name="username" class="form-control" id="username" placeholder="Phone/email">
+                        <input type="text" name="uname" class="form-control" id="uname" placeholder="Phone/email">
                     </div>
                     <div class="form-group">
                         <label for="txt_parentdepartment">password</label>
-                        <input type="password" name="password" class="form-control" id="password" >
+                        <input type="password" name="upassword" class="form-control" id="upassword" >
                     </div>
                </form>  
                 </div>
@@ -1274,7 +1274,7 @@ $(document).ready(function () {
             url: "./ajaxForm", //process to mail
             data: $('form.contact').serialize(),
             success: function(msg){
-            	alert(msg.uname);
+            	alert(msg);
                
             },
             error: function(){
