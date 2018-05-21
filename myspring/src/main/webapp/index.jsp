@@ -105,14 +105,15 @@
 					</div>
 				</div>
 			</div> 
-			<ul class="social-icon">
+			<p id="showuname"></p>
+			<!-- <ul class="social-icon">
 				<li><a href=""><i class="fa fa-youtube"></i></a></li>
 				<li><a href=""><i class="fa fa-behance"></i></a></li>
 				<li><a href=""><i class="fa fa-linkedin"></i></a></li>
 				<li><a href=""><i class="fa fa-instagram"></i></a></li>
 				<li><a href=""><i class="fa fa-twitter"></i></a></li>
 				<li><a href=""><i class="fa fa-facebook"></i></a></li>
-			</ul>
+			</ul> -->
 		</div>
 	</div>
 </div>
@@ -205,7 +206,7 @@
 			</div>
 			<div class="col-lg-3 col-xl-3 hide-sm">
 				<div class="search-reg">
-					<div class="reg-area">
+					<div class="reg-area" id="reg-area">
 						<div class="search align-middle">
 							<input class="search-input" placeholder="Search" type="text">
 							<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
@@ -1275,7 +1276,8 @@ $(document).ready(function () {
             data: $('form.contact').serialize(),
             success: function(msg){
             	alert(msg);
-               
+            	$('#myModal').modal('hide');
+            	$('#showuname').html("WELCOME  "+msg);
             },
             error: function(){
                 alert("failure");
